@@ -1,0 +1,60 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    },
+    {
+      "id": "142f"
+    },
+    {
+      "id": "4d60",
+      "title": "test",
+      "view": 120
+    },
+    {
+      "id": "d8a6",
+      "title": "test",
+      "view": 120
+    },
+    {
+      "id": "8063",
+      "title": "接",
+      "view": "105"
+    },
+    {
+      "id": "6d0c",
+      "title": "反",
+      "view": 136
+    },
+    {
+      "id": "5a36",
+      "title": "一",
+      "view": 126
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "eb0f"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
