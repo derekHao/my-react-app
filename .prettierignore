@@ -1,0 +1,18 @@
+# 依赖和构建产物
+node_modules/
+dist/
+build/
+coverage/
+
+# 配置文件
+.env*
+# *.config.js
+# *.config.ts
+
+# 文档和日志
+*.log
+CHANGELOG.md
+
+# 特殊格式文件
+*.min.js
+*.min.css
