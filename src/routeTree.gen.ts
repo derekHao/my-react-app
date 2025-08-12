@@ -8,73 +8,69 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as DerekRouteImport } from './routes/derek'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as rootRouteImport } from './pages/__root'
+import { Route as IndexRouteImport } from './pages/index'
+import { Route as FrontTopicRouteImport } from './pages/front/topic'
+import { Route as FrontRoutetestRouteImport } from './pages/front/routetest'
+import { Route as FrontLiveRouteImport } from './pages/front/live'
 
-const DerekRoute = DerekRouteImport.update({
-  id: '/derek',
-  path: '/derek',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FrontTopicRoute = FrontTopicRouteImport.update({
+  id: '/front/topic',
+  path: '/front/topic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrontRoutetestRoute = FrontRoutetestRouteImport.update({
+  id: '/front/routetest',
+  path: '/front/routetest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrontLiveRoute = FrontLiveRouteImport.update({
+  id: '/front/live',
+  path: '/front/live',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/derek': typeof DerekRoute
+  '/front/live': typeof FrontLiveRoute
+  '/front/routetest': typeof FrontRoutetestRoute
+  '/front/topic': typeof FrontTopicRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/derek': typeof DerekRoute
+  '/front/live': typeof FrontLiveRoute
+  '/front/routetest': typeof FrontRoutetestRoute
+  '/front/topic': typeof FrontTopicRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/derek': typeof DerekRoute
+  '/front/live': typeof FrontLiveRoute
+  '/front/routetest': typeof FrontRoutetestRoute
+  '/front/topic': typeof FrontTopicRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/derek'
+  fullPaths: '/' | '/front/live' | '/front/routetest' | '/front/topic'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/derek'
-  id: '__root__' | '/' | '/about' | '/derek'
+  to: '/' | '/front/live' | '/front/routetest' | '/front/topic'
+  id: '__root__' | '/' | '/front/live' | '/front/routetest' | '/front/topic'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  DerekRoute: typeof DerekRoute
+  FrontLiveRoute: typeof FrontLiveRoute
+  FrontRoutetestRoute: typeof FrontRoutetestRoute
+  FrontTopicRoute: typeof FrontTopicRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/derek': {
-      id: '/derek'
-      path: '/derek'
-      fullPath: '/derek'
-      preLoaderRoute: typeof DerekRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/front/topic': {
+      id: '/front/topic'
+      path: '/front/topic'
+      fullPath: '/front/topic'
+      preLoaderRoute: typeof FrontTopicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/front/routetest': {
+      id: '/front/routetest'
+      path: '/front/routetest'
+      fullPath: '/front/routetest'
+      preLoaderRoute: typeof FrontRoutetestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/front/live': {
+      id: '/front/live'
+      path: '/front/live'
+      fullPath: '/front/live'
+      preLoaderRoute: typeof FrontLiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  DerekRoute: DerekRoute,
+  FrontLiveRoute: FrontLiveRoute,
+  FrontRoutetestRoute: FrontRoutetestRoute,
+  FrontTopicRoute: FrontTopicRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
